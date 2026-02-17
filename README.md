@@ -9,7 +9,7 @@
 ### Team
 - Ryley Goodine - ripclaw52 - programmer
 - Erwin Panergo - KainTaimu - programmer
-- Katelyn VanDenBussche - Amalgamoth - musician
+- Katelyn VanDenBussche - moth_juice - musician
 - Zofia - quantumvitae - writer
 
 # THEME: SHIFTING
