@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using MacEwanGameJam26.Players;
 
@@ -30,12 +31,18 @@ public partial class ObstacleCamera : Node2D
 
     public override void _Process(double delta)
     {
-        if (!_isPlayerBeingDetected || _hasPlayerBeenDetected)
-            return;
+        if (_isPlayerBeingDetected && !_hasPlayerBeenDetected)
+        {
+            _detectionTime += (float)GetProcessDeltaTime();
+            if (_detectionTime >= _timeToDetectionSec) DetectPlayer();
+        }
+        else
+        {
+            // Decay detection time
+            _detectionTime -= (float)GetProcessDeltaTime() * 0.5f;
+        }
 
-        _detectionTime += (float)GetProcessDeltaTime();
-        if (_detectionTime >= _timeToDetectionSec) DetectPlayer();
-        CustomLogger.LogDebug(_detectionTime);
+        _detectionTime = Math.Clamp(_detectionTime, 0, _timeToDetectionSec);
     }
 
     public override string[] _GetConfigurationWarnings()
