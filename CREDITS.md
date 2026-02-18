@@ -1,0 +1,1 @@
+﻿Shine shader (https://godotshaders.com/shader/shine/) by https://godotshaders.com/author/kingtoot/

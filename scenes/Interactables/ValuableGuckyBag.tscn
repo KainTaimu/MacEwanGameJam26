@@ -12,5 +12,5 @@ position = Vector2(-4.7683716e-07, -4.7683716e-07)
 scale = Vector2(2.2857141, 2.1333334)
 texture = ExtResource("2_rfls8")
 
-[node name="OnStealLabel" parent="." index="2" unique_id=958903254]
+[node name="OnStealLabel" parent="." index="3" unique_id=958903254]
 theme_override_colors/font_color = Color(0, 0.84705883, 0, 1)
