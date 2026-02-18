@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://54tepmetv4b0" path="res://scenes/Levels/Building.tscn" id="3_btokf"]
 [ext_resource type="PackedScene" uid="uid://cugvunyugfpwt" path="res://scenes/Interactables/ValuableGuckyBag.tscn" id="4_hxav2"]
 [ext_resource type="Script" uid="uid://bs1l4yoc06q2n" path="res://src/Levels/LevelMoneyController.cs" id="4_nmws4"]
-[ext_resource type="PackedScene" uid="uid://ii8lkydv0qob" path="res://scenes/Interactables/InteractableJumpable.tscn" id="5_vqnnq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pkrqt"]
 
@@ -300,21 +299,26 @@ offset_bottom = 167.0
 grow_horizontal = 2
 text = "Store"
 
-[node name="Player" parent="World" unique_id=1702796050 instance=ExtResource("1_pkrqt")]
+[node name="Player" parent="World" unique_id=1702796050 node_paths=PackedStringArray("_moneyController") instance=ExtResource("1_pkrqt")]
 position = Vector2(544, 256)
 scale = Vector2(3.565, 3.565)
+_moneyController = NodePath("../../Systems/LevelMoneyController")
 
 [node name="Camera2D" type="Camera2D" parent="World/Player" unique_id=1452964295]
 zoom = Vector2(0.56, 0.56)
 metadata/_edit_lock_ = true
 
-[node name="InteractableValuable" parent="World" unique_id=1709141728 node_paths=PackedStringArray("_moneyController") instance=ExtResource("4_hxav2")]
-position = Vector2(984, 520)
-scale = Vector2(2, 2)
+[node name="ValuableGuckyBag" parent="World" unique_id=1709141728 node_paths=PackedStringArray("_moneyController", "_player") instance=ExtResource("4_hxav2")]
+position = Vector2(1016, 520)
+scale = Vector2(3.565, 3.565)
 _moneyController = NodePath("../../Systems/LevelMoneyController")
+_player = NodePath("../Player")
 
-[node name="InteractableJumpable" parent="World" unique_id=2025109905 instance=ExtResource("5_vqnnq")]
-position = Vector2(1072, 560)
+[node name="ValuableGuckyBag2" parent="World" unique_id=1735835214 node_paths=PackedStringArray("_moneyController", "_player") instance=ExtResource("4_hxav2")]
+position = Vector2(871.99994, 520)
+scale = Vector2(3.565, 3.565)
+_moneyController = NodePath("../../Systems/LevelMoneyController")
+_player = NodePath("../Player")
 
 [node name="Systems" type="Node" parent="." unique_id=285499847]
 

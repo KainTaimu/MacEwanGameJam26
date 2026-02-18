@@ -10,7 +10,7 @@ public partial class BaseObstacle : Node2D, IInteractable
 {
     [Export] public Array<StringName> AllowedFormNames;
 
-    public void Interact(Player player)
+    public void Interact()
     {
         throw new NotImplementedException();
     }

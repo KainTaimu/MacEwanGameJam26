@@ -2,21 +2,51 @@
 
 [ext_resource type="PackedScene" uid="uid://bbvkpdi2k3x6k" path="res://scenes/Interactables/BaseInteractable.tscn" id="1_7hwr0"]
 [ext_resource type="Script" uid="uid://8ltj1ikfoe7m" path="res://src/Interactables/InteractableValuable.cs" id="2_3k84a"]
+[ext_resource type="Texture2D" uid="uid://b13kssuqm0mo2" path="res://assets/UI/circle.png" id="3_2x7sy"]
+[ext_resource type="Texture2D" uid="uid://4cu72wftypfj" path="res://assets/UI/circle_outer.png" id="3_8xpxq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3k84a"]
 size = Vector2(32, 32)
 
-[node name="InteractableValuable" unique_id=1709141728 node_paths=PackedStringArray("_onStealLabel") instance=ExtResource("1_7hwr0")]
+[node name="InteractableValuable" unique_id=1709141728 node_paths=PackedStringArray("_interactableCircle", "_interactableInnerCircle", "_onStealLabel") instance=ExtResource("1_7hwr0")]
 script = ExtResource("2_3k84a")
+_interactableCircle = NodePath("InteractableCircle")
+_interactableInnerCircle = NodePath("InteractableCircle/InteractableInnerCircleSprite")
 _onStealLabel = NodePath("OnStealLabel")
 MonetaryValue = 10
+PickUpRange = 300
 
 [node name="Sprite2D" parent="." index="0" unique_id=1791620053]
 texture = SubResource("PlaceholderTexture2D_3k84a")
+metadata/_edit_lock_ = true
 
-[node name="OnStealLabel" type="Label" parent="." index="2" unique_id=958903254]
+[node name="InteractableCircle" type="Node2D" parent="." index="1" unique_id=1630206564]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.25, 0.25)
+metadata/_edit_lock_ = true
+
+[node name="InteractableInnerCircleSprite" type="Sprite2D" parent="InteractableCircle" index="0" unique_id=523406383]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_2x7sy")
+metadata/_edit_lock_ = true
+
+[node name="InteractableOuterCircleSprite" type="Sprite2D" parent="InteractableCircle" index="1" unique_id=1875628477]
+texture = ExtResource("3_8xpxq")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=2046388309]
 visible = false
-offset_right = 40.0
-offset_bottom = 19.0
+metadata/_edit_lock_ = true
+
+[node name="OnStealLabel" type="Label" parent="." index="3" unique_id=958903254]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "+$10"
 horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+metadata/_edit_use_anchors_ = true
