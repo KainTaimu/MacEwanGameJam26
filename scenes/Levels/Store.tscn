@@ -10,44 +10,43 @@
 [node name="Store" unique_id=1874492256 instance=ExtResource("1_skel6")]
 _opacityTransitionTimeSeconds = 0.2
 
-[node name="StoreInterior" type="TextureRect" parent="Interior" parent_id_path=PackedInt32Array(2130644391) index="0" unique_id=1294204173]
-offset_left = 128.0
-offset_top = 16.0
-offset_right = 472.0
-offset_bottom = 147.0
-texture = ExtResource("2_q5yrg")
-metadata/_edit_use_anchors_ = true
+[node name="Interior" parent="." index="0" unique_id=2075406371]
+z_index = -1
+z_as_relative = false
 
-[node name="StoreShelves" type="TextureRect" parent="Interior" parent_id_path=PackedInt32Array(2130644391) index="1" unique_id=547050798]
-offset_left = 128.0
-offset_top = 16.0
-offset_right = 472.0
-offset_bottom = 147.0
+[node name="StoreInterior" type="Sprite2D" parent="Interior" index="0" unique_id=1288269188]
+position = Vector2(304, 81)
+texture = ExtResource("2_q5yrg")
+
+[node name="StoreShelves" type="Sprite2D" parent="Interior" index="1" unique_id=430264517]
+position = Vector2(303.5, 83)
+scale = Vector2(1.0433334, 1.1764706)
 texture = ExtResource("3_e5o5o")
-metadata/_edit_use_anchors_ = true
 
 [node name="KeepsOpacity" type="Node2D" parent="." index="1" unique_id=125435418]
+z_index = 1
+z_as_relative = false
 
-[node name="StoreExterior" type="TextureRect" parent="KeepsOpacity" index="0" unique_id=2123824730]
-offset_right = 494.0
-offset_bottom = 154.0
+[node name="StoreExterior" type="Sprite2D" parent="KeepsOpacity" index="0" unique_id=647151287]
+position = Vector2(312, 72)
 texture = ExtResource("4_h4p52")
 
-[node name="TextureRect2" type="TextureRect" parent="KeepsOpacity" index="1" unique_id=1668495534]
-offset_left = 120.0
-offset_top = -8.0
-offset_right = 486.0
-offset_bottom = 88.0
+[node name="StoreRoof" type="Sprite2D" parent="KeepsOpacity" index="1" unique_id=443832952]
+position = Vector2(303, 40.250004)
+scale = Vector2(1, 1.1470588)
 texture = ExtResource("5_f0nks")
 
-[node name="TextureRect" type="TextureRect" parent="Exterior" parent_id_path=PackedInt32Array(6757340) index="0" unique_id=1662731944]
-offset_left = 141.0
-offset_top = 41.0
-offset_right = 462.0
-offset_bottom = 138.0
+[node name="Exterior" parent="." index="2" unique_id=600291657]
+z_index = 1
+z_as_relative = false
+
+[node name="StoreWindows" type="Sprite2D" parent="Exterior" index="0" unique_id=1804152881]
+position = Vector2(304.63275, 87.99999)
+scale = Vector2(1.0070575, 1.0721649)
 texture = ExtResource("6_q5yrg")
 
 [node name="Area2D" parent="." index="3" unique_id=1308853996]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="Area2D" index="0" unique_id=1895748089]

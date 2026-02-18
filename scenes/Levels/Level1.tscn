@@ -45,11 +45,12 @@ _player = NodePath("../../Entities/Player")
 [node name="Entities" type="Node2D" parent="World" unique_id=263715352]
 
 [node name="Player" parent="World/Entities" unique_id=1702796050 instance=ExtResource("2_rwobs")]
+z_as_relative = false
 position = Vector2(544, 256)
 scale = Vector2(3.565, 3.565)
 
 [node name="Camera2D" type="Camera2D" parent="World/Entities/Player" unique_id=248160890]
-zoom = Vector2(0.56, 0.56)
+zoom = Vector2(0.81, 0.81)
 metadata/_edit_lock_ = true
 
 [node name="Systems" type="Node" parent="." unique_id=238432846]

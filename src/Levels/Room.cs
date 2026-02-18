@@ -32,6 +32,9 @@ public partial class Room : Node2D
 
     private void AnimateOpacity(Node2D node, bool toTransparent)
     {
+        if (node is null)
+            return;
+
         var tween = CreateTween();
         if (toTransparent)
             tween.TweenProperty(node, "modulate", Colors.Transparent, _opacityTransitionTimeSeconds);
