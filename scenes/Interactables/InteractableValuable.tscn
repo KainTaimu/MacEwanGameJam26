@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://05y01yora38s"]
 
 [ext_resource type="PackedScene" uid="uid://bbvkpdi2k3x6k" path="res://scenes/Interactables/BaseInteractable.tscn" id="1_7hwr0"]
-[ext_resource type="Script" uid="uid://8ltj1ikfoe7m" path="res://scenes/Interactables/InteractableValuable.cs" id="2_3k84a"]
+[ext_resource type="Script" uid="uid://8ltj1ikfoe7m" path="res://src/Interactables/InteractableValuable.cs" id="2_3k84a"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3k84a"]
 size = Vector2(32, 32)
