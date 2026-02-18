@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bbvkpdi2k3x6k"]
+
+[ext_resource type="Script" uid="uid://brfcnxdmw2nxj" path="res://src/Interactables/BaseInteractable.cs" id="1_wasuc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wasuc"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knxd4"]
+size = Vector2(32, 32)
+
+[node name="BaseInteractable" type="Area2D" unique_id=2025109905]
+script = ExtResource("1_wasuc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1791620053]
+texture = SubResource("PlaceholderTexture2D_wasuc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2046388309]
+shape = SubResource("RectangleShape2D_knxd4")

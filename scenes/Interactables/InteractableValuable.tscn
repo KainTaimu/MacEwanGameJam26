@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://05y01yora38s"]
+
+[ext_resource type="PackedScene" uid="uid://bbvkpdi2k3x6k" path="res://scenes/Interactables/BaseInteractable.tscn" id="1_7hwr0"]
+[ext_resource type="Script" uid="uid://8ltj1ikfoe7m" path="res://scenes/Interactables/InteractableValuable.cs" id="2_3k84a"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3k84a"]
+size = Vector2(32, 32)
+
+[node name="InteractableValuable" unique_id=1709141728 node_paths=PackedStringArray("_onStealLabel") instance=ExtResource("1_7hwr0")]
+script = ExtResource("2_3k84a")
+_onStealLabel = NodePath("OnStealLabel")
+MonetaryValue = 10
+
+[node name="Sprite2D" parent="." index="0" unique_id=1791620053]
+texture = SubResource("PlaceholderTexture2D_3k84a")
+
+[node name="OnStealLabel" type="Label" parent="." index="2" unique_id=958903254]
+visible = false
+offset_right = 40.0
+offset_bottom = 19.0
+text = "+$10"
+horizontal_alignment = 1

@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://d322bbpu1i3fg"]
+
+[ext_resource type="Script" uid="uid://b7qme5gqbyk3p" path="res://src/Players/Player.cs" id="1_f0mf6"]
+[ext_resource type="Texture2D" uid="uid://dnoisq6eiair6" path="res://assets/Players/Gobbo1.png" id="2_45fmh"]
+[ext_resource type="Script" uid="uid://2guolg06rvxn" path="res://src/Players/PlayerMovementController.cs" id="2_d0tyu"]
+[ext_resource type="Script" uid="uid://c4b7a2jyt16p0" path="res://src/Players/PlayerInteractionController.cs" id="3_v5xr6"]
+[ext_resource type="Script" uid="uid://bvbq386kdf34w" path="res://src/Players/PlayerShapeShiftingController.cs" id="4_7tlpa"]
+[ext_resource type="Script" uid="uid://cf30m5ar1a6la" path="res://src/Players/PlayerDebugLabel.cs" id="5_cdd6o"]
+[ext_resource type="Script" uid="uid://vewwxilbhmkb" path="res://src/Players/PlayerShiftFormNormal.cs" id="5_pqexr"]
+[ext_resource type="Script" uid="uid://dk1p5my685ifr" path="res://src/Players/PlayerShiftFormJumper.cs" id="6_yecw2"]
+[ext_resource type="Script" uid="uid://q25qtla0r2yv" path="res://src/Players/OnFormShiftFeedbackParticles.cs" id="8_yecw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45fmh"]
+size = Vector2(13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tlpa"]
+atlas = ExtResource("2_45fmh")
+region = Rect2(4, 1, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdd6o"]
+atlas = ExtResource("2_45fmh")
+region = Rect2(20, 1, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfojw"]
+atlas = ExtResource("2_45fmh")
+region = Rect2(36, 1, 16, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0tyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tlpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdd6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfojw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5xr6"]
+size = Vector2(34, 24)
+
+[node name="Player" type="CharacterBody2D" unique_id=1702796050]
+script = ExtResource("1_f0mf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144858724]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_45fmh")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1922127370]
+sprite_frames = SubResource("SpriteFrames_d0tyu")
+autoplay = "default"
+frame_progress = 0.3863597
+metadata/_edit_lock_ = true
+
+[node name="PlayerInteractionController" type="Area2D" parent="." unique_id=1616605344 node_paths=PackedStringArray("_player")]
+collision_mask = 256
+script = ExtResource("3_v5xr6")
+_player = NodePath("..")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractionController" unique_id=210105669]
+position = Vector2(10, 2)
+shape = SubResource("RectangleShape2D_v5xr6")
+debug_color = Color(3.85046e-07, 0.63718325, 0.38764405, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="PlayerMovementController" type="Node" parent="." unique_id=1572797782 node_paths=PackedStringArray("_player")]
+script = ExtResource("2_d0tyu")
+_moveSpeed = 1400.0
+_player = NodePath("..")
+
+[node name="PlayerShapeShiftingController" type="Node" parent="." unique_id=581698384 node_paths=PackedStringArray("CurrentForm")]
+script = ExtResource("4_7tlpa")
+CurrentForm = NodePath("FormNormal")
+
+[node name="FormNormal" type="Node" parent="PlayerShapeShiftingController" unique_id=1393643742 node_paths=PackedStringArray("ShiftingController")]
+script = ExtResource("5_pqexr")
+ShiftingController = NodePath("..")
+FormName = "Normal"
+ActionShortcutName = &"PlayerShiftFormNormal"
+
+[node name="FormJumper" type="Node" parent="PlayerShapeShiftingController" unique_id=611518916 node_paths=PackedStringArray("ShiftingController")]
+script = ExtResource("6_yecw2")
+ShiftingController = NodePath("..")
+FormName = "Jumper"
+ActionShortcutName = &"PlayerShiftFormJumper"
+
+[node name="Control" type="CanvasLayer" parent="." unique_id=2042625612]
+visible = false
+
+[node name="PlayerDebugLabel" type="Label" parent="Control" unique_id=882882758 node_paths=PackedStringArray("_shiftingController")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_right = 82.0
+grow_vertical = 0
+text = "CurrentForm"
+horizontal_alignment = 1
+script = ExtResource("5_cdd6o")
+_shiftingController = NodePath("../../PlayerShapeShiftingController")
+
+[node name="OnFormShiftFeedbackParticles" type="CPUParticles2D" parent="." unique_id=576791292 node_paths=PackedStringArray("_shiftingController")]
+emitting = false
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 365.08
+initial_velocity_max = 365.08
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+script = ExtResource("8_yecw2")
+_shiftingController = NodePath("../PlayerShapeShiftingController")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="PlayerInteractionController" to="PlayerInteractionController" method="OnArea2DEntered"]

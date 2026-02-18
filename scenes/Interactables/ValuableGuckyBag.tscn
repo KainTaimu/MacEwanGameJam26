@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cugvunyugfpwt"]
+
+[ext_resource type="PackedScene" uid="uid://05y01yora38s" path="res://scenes/Interactables/InteractableValuable.tscn" id="1_ubc58"]
+[ext_resource type="Texture2D" uid="uid://bgfw8tdedf1hw" path="res://assets/Interactable/Gucky_Bag_2.png" id="2_rfls8"]
+
+[node name="ValuableGuckyBag" unique_id=1709141728 instance=ExtResource("1_ubc58")]
+collision_layer = 256
+collision_mask = 0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1791620053]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(2.2857141, 2.1333334)
+texture = ExtResource("2_rfls8")
+
+[node name="OnStealLabel" parent="." index="2" unique_id=958903254]
+theme_override_colors/font_color = Color(0, 0.84705883, 0, 1)
