@@ -1,9 +1,8 @@
 using Godot;
-using MacEwanGameJam26.Interactables;
 using MacEwanGameJam26.Levels;
 using MacEwanGameJam26.Players;
 
-namespace MacEwanGameJam26.scenes.Interactables;
+namespace MacEwanGameJam26.Interactables;
 
 public partial class InteractableValuable : BaseInteractable
 {
