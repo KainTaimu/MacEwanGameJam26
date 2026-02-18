@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cs2qm4uxaudrv" path="res://assets/Levels/grid_dark.png" id="1_ouyn2"]
 [ext_resource type="PackedScene" uid="uid://d322bbpu1i3fg" path="res://scenes/Players/Player.tscn" id="1_pkrqt"]
-[ext_resource type="PackedScene" uid="uid://54tepmetv4b0" path="res://scenes/Levels/Building.tscn" id="3_btokf"]
-[ext_resource type="PackedScene" uid="uid://cugvunyugfpwt" path="res://scenes/Interactables/ValuableGuckyBag.tscn" id="4_hxav2"]
 [ext_resource type="Script" uid="uid://bs1l4yoc06q2n" path="res://src/Levels/LevelMoneyController.cs" id="4_nmws4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pkrqt"]
@@ -286,19 +284,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAI
 tile_set = SubResource("TileSet_nmws4")
 metadata/_edit_lock_ = true
 
-[node name="Building" parent="World" unique_id=1874492256 instance=ExtResource("3_btokf")]
-
-[node name="DebugLabel" type="Label" parent="World/Building" unique_id=84502401]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 1392.0
-offset_top = 144.0
-offset_right = 1434.0
-offset_bottom = 167.0
-grow_horizontal = 2
-text = "Store"
-
 [node name="Player" parent="World" unique_id=1702796050 node_paths=PackedStringArray("_moneyController") instance=ExtResource("1_pkrqt")]
 position = Vector2(544, 256)
 scale = Vector2(3.565, 3.565)
@@ -307,18 +292,6 @@ _moneyController = NodePath("../../Systems/LevelMoneyController")
 [node name="Camera2D" type="Camera2D" parent="World/Player" unique_id=1452964295]
 zoom = Vector2(0.56, 0.56)
 metadata/_edit_lock_ = true
-
-[node name="ValuableGuckyBag" parent="World" unique_id=1709141728 node_paths=PackedStringArray("_moneyController", "_player") instance=ExtResource("4_hxav2")]
-position = Vector2(1016, 520)
-scale = Vector2(3.565, 3.565)
-_moneyController = NodePath("../../Systems/LevelMoneyController")
-_player = NodePath("../Player")
-
-[node name="ValuableGuckyBag2" parent="World" unique_id=1735835214 node_paths=PackedStringArray("_moneyController", "_player") instance=ExtResource("4_hxav2")]
-position = Vector2(871.99994, 520)
-scale = Vector2(3.565, 3.565)
-_moneyController = NodePath("../../Systems/LevelMoneyController")
-_player = NodePath("../Player")
 
 [node name="Systems" type="Node" parent="." unique_id=285499847]
 
