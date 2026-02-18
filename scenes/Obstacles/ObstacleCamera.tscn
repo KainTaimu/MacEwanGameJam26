@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c6iclcsvv8p1r"]
+
+[ext_resource type="Script" uid="uid://c10g2x72fc25a" path="res://src/Obstacles/ObstacleCamera.cs" id="1_dffan"]
+[ext_resource type="Texture2D" uid="uid://07r83qoudr6d" path="res://assets/Obstacles/CCTV.png" id="1_dqmjx"]
+
+[node name="ObstacleCamera" type="Node2D" unique_id=2129880136]
+script = ExtResource("1_dffan")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=697754572]
+texture = ExtResource("1_dqmjx")
