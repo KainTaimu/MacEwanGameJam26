@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dr2adf1766fxk"]
 
 [ext_resource type="Script" uid="uid://do1t4c2m8dt0o" path="res://src/UI/MainMenu.cs" id="1_11hie"]
-[ext_resource type="Texture2D" uid="uid://cx8xdp62r6gmi" path="res://assets/UI/ButtonUI.png" id="2_58fj5"]
+[ext_resource type="Texture2D" uid="uid://rehm0bhocdrl" path="res://assets/UI/title_img1.png" id="2_3h7gc"]
+[ext_resource type="Texture2D" uid="uid://cfslxlcfcyn0c" path="res://assets/UI/button_border_4.png" id="4_b1p1q"]
 
 [node name="MainMenu" type="Control" unique_id=1139309184]
 layout_mode = 3
@@ -10,7 +11,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_11hie")
+
+[node name="BorderBackground" type="TextureRect" parent="." unique_id=1037637693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_b1p1q")
+
+[node name="Backgound" type="TextureRect" parent="BorderBackground" unique_id=236027826]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_top = 91.0
+offset_right = -91.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3h7gc")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=58384492]
 layout_mode = 1
@@ -19,50 +44,66 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -249.0
-offset_top = -198.0
-offset_right = 249.0
-offset_bottom = 198.0
+offset_left = -760.0
+offset_top = -402.0
+offset_right = 70.5
+offset_bottom = 390.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1531821282]
 layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1329194286]
+layout_mode = 2
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 165
+text = "TITLE PAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="PlayImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1652457398]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-texture = ExtResource("2_58fj5")
+texture = ExtResource("4_b1p1q")
 expand_mode = 1
 stretch_mode = 6
 metadata/_edit_group_ = true
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer/PlayImage" unique_id=1942886197]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 498.0
-offset_bottom = 132.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 64
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 82
 text = "PLAY"
 
 [node name="VolumeControl" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1329872845]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 6
 metadata/_edit_group_ = true
 
 [node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VolumeControl" unique_id=1837355752]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 64
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 82
 text = "VOLUME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MasterVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VolumeControl" unique_id=624695417]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -71,17 +112,21 @@ value = 1.0
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-texture = ExtResource("2_58fj5")
+texture = ExtResource("4_b1p1q")
+expand_mode = 1
 stretch_mode = 6
 metadata/_edit_group_ = true
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/QuitImage" unique_id=1112679053]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 498.0
-offset_bottom = 132.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 64
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 82
 text = "QUIT"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayImage/Play" to="." method="OnPlayPressed"]
