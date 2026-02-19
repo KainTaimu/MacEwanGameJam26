@@ -59,10 +59,11 @@ theme_override_constants/separation = 50
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1329194286]
 layout_mode = 2
 theme_override_constants/outline_size = 40
-theme_override_font_sizes/font_size = 165
-text = "TITLE PAGE"
+theme_override_font_sizes/font_size = 106
+text = "Gobbline’s treasure hunt"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 1
 uppercase = true
 
 [node name="PlayImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1652457398]
