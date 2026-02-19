@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://fp2yikasfr3y" path="res://src/UI/PauseMenu.cs" id="1_4r2wj"]
 [ext_resource type="Shader" uid="uid://btk4tjkx36l6s" path="res://src/Shaders/PauseMenu.gdshader" id="1_fsae6"]
+[ext_resource type="Texture2D" uid="uid://cfslxlcfcyn0c" path="res://assets/UI/button_border_4.png" id="3_73e60"]
 [ext_resource type="Animation" uid="uid://bmt6cqqr2kvvt" path="res://src/Shaders/blur.tres" id="3_avwb0"]
+[ext_resource type="Texture2D" uid="uid://gjtcfa1tedd5" path="res://assets/UI/background-colour-1.png" id="3_onjwa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6q0ex"]
 shader = ExtResource("1_fsae6")
 shader_parameter/lod = 0.800000038
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onjwa"]
+texture = ExtResource("3_onjwa")
 
 [sub_resource type="Animation" id="Animation_73e60"]
 length = 0.001
@@ -68,34 +73,71 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_left = -341.5
+offset_top = -252.25
+offset_right = 341.5
+offset_bottom = 252.25
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_onjwa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1392556000]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 50
 
-[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1454146308]
+[node name="ResumeBG" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=812572833]
 layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_73e60")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer/ResumeBG" unique_id=1454146308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "Resume"
 
-[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1142140420]
+[node name="RestartBG" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=1375866984]
 layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_73e60")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer/RestartBG" unique_id=1142140420]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "Restart"
 
-[node name="BackToMenu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=415168388]
+[node name="BackBG" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=653253326]
 layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_73e60")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackToMenu" type="Button" parent="PanelContainer/VBoxContainer/BackBG" unique_id=415168388]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
@@ -104,6 +146,6 @@ text = "Back to Main Menu"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1372043951]
 libraries/ = SubResource("AnimationLibrary_onjwa")
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="OnResumePressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="OnRestartPressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMenu" to="." method="OnBackToMenuPressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeBG/Resume" to="." method="OnResumePressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/RestartBG/Restart" to="." method="OnRestartPressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackBG/BackToMenu" to="." method="OnBackToMenuPressed"]
