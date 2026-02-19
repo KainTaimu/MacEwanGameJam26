@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://fvulp8ewyhw8"]
+
+[ext_resource type="AudioStream" uid="uid://h4y0oipwxtum" path="res://assets/Audio/level 1 DEMO.mp3" id="1_j1dt1"]
+
+[node name="MusicPlayer" type="Node" unique_id=967550104]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1948325626]
+process_mode = 3
+stream = ExtResource("1_j1dt1")
+volume_db = 12.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
