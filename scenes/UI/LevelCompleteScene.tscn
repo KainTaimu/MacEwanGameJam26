@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://cee14ut1nqwjd"]
+[gd_scene format=3 uid="uid://c6umdsvmq1bin"]
 
-[ext_resource type="Script" uid="uid://td7yww5w632p" path="res://src/UI/CaughtScreen.cs" id="1_dr7ww"]
-[ext_resource type="Shader" uid="uid://btk4tjkx36l6s" path="res://src/Shaders/PauseMenu.gdshader" id="2_r5br1"]
-[ext_resource type="Texture2D" uid="uid://cfslxlcfcyn0c" path="res://assets/UI/button_border_4.png" id="3_r5br1"]
+[ext_resource type="Script" uid="uid://td7yww5w632p" path="res://src/UI/CaughtScreen.cs" id="1_3c4om"]
+[ext_resource type="Shader" uid="uid://btk4tjkx36l6s" path="res://src/Shaders/PauseMenu.gdshader" id="1_v6cge"]
+[ext_resource type="Texture2D" uid="uid://cfslxlcfcyn0c" path="res://assets/UI/button_border_4.png" id="2_3c4om"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0qrc"]
-shader = ExtResource("2_r5br1")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vh6ht"]
+shader = ExtResource("1_v6cge")
 shader_parameter/lod = 0.800000038
 
 [sub_resource type="Animation" id="Animation_r5br1"]
@@ -62,26 +62,25 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r5br1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ul8h"]
 _data = {
 &"RESET": SubResource("Animation_r5br1"),
 &"blur": SubResource("Animation_edepv")
 }
 
-[node name="CaughtScreen" type="CanvasLayer" unique_id=1313426740 node_paths=PackedStringArray("_animationPlayer")]
-process_mode = 3
-script = ExtResource("1_dr7ww")
+[node name="LevelCompleteScene" type="CanvasLayer" unique_id=1225057473 node_paths=PackedStringArray("_animationPlayer")]
+script = ExtResource("1_3c4om")
 _animationPlayer = NodePath("AnimationPlayer")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=468073251]
-material = SubResource("ShaderMaterial_p0qrc")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=837939770]
+material = SubResource("ShaderMaterial_vh6ht")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1866255646]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2115168101]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -94,25 +93,31 @@ offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1107817337]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=748893467]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=360977037]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=682469983]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
-text = "CAUGHT :("
+text = "DEMO OVER!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1529593988]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=890099050]
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "Thanks for playing!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=978209689]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1527343917]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=146133362]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_r5br1")
+texture = ExtResource("2_3c4om")
 expand_mode = 5
 
-[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/TextureRect" unique_id=2063671449]
+[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/TextureRect" unique_id=2068066463]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,13 +127,13 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Restart"
 
-[node name="TextureRect2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1414389970]
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=970434922]
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("3_r5br1")
+texture = ExtResource("2_3c4om")
 expand_mode = 3
 
-[node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/TextureRect2" unique_id=650901929]
+[node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/TextureRect2" unique_id=1814668553]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -138,8 +143,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1678828526]
-libraries/ = SubResource("AnimationLibrary_r5br1")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1164460010]
+libraries/ = SubResource("AnimationLibrary_5ul8h")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/TextureRect/Restart" to="." method="OnRestartPressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/TextureRect2/MainMenu" to="." method="OnBackToMenuPressed"]
