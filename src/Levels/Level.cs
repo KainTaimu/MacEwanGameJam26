@@ -8,6 +8,9 @@ public partial class Level : Node2D
     [Signal]
     public delegate void OnPlayerCaughtEventHandler();
 
+    [Signal]
+    public delegate void OnPlayerCompletedLevelEventHandler();
+
     public static Level CurrentLevel { get; private set; }
 
     [Export]
@@ -38,5 +41,10 @@ public partial class Level : Node2D
     public void AnnouncePlayerCaught()
     {
         EmitSignalOnPlayerCaught();
+    }
+
+    public void AnnouncePlayerCompletedLevel()
+    {
+        EmitSignalOnPlayerCompletedLevel();
     }
 }

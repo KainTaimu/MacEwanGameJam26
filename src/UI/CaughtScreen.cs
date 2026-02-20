@@ -13,6 +13,13 @@ public partial class CaughtScreen : CanvasLayer
         GetTree().Paused = true;
     }
 
+    public void HandlePlayerCompletedLevel()
+    {
+        Show();
+        _animationPlayer.Play("blur");
+        GetTree().Paused = true;
+    }
+
     public void OnRestartPressed()
     {
         Resume();
