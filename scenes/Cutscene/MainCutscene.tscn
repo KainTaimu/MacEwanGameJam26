@@ -55,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y8w50")
 _images = Array[Texture2D]([ExtResource("2_v2wh8"), ExtResource("3_5yxl0"), ExtResource("4_u6bii"), ExtResource("5_ny5of"), ExtResource("6_bybns"), ExtResource("7_3gem2")])
-_descriptions = Array[String](["After an excellent day of treasure hunting, Gobbline returns to their home to deposit their riches.", "Unfortunately, the house has begun burning, taking their belongings with it.", "All that remains was that strange magic orb...", "So of course, Goblinne ate it.", ".... and awoke to a new world! Full of treasures (Or so they hope.)!.", "Accompanied by the magic Gobbline acquired, they may rebuild their hoard of wealth! Go forth gobbline, and steal stuff!"])
+_descriptions = Array[String](["After an excellent day of treasure hunting, Gobbline returned to their home to deposit their riches.", "Unfortunately, the house had burned, taking their belongings with it.", "All that remained was that strange magic orb...", "So of course, Goblinne ate it.", ".... and awoke to a new world! Full of treasures (Or so they hope.)!.", "Accompanied by the magic Gobbline acquired, they may rebuild their hoard of wealth! Go forth gobbline, and steal stuff!"])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1429481234]
 layout_mode = 1
