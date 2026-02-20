@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="MacEwanGameJam26"
-run/main_scene="uid://bslf6sblubx86"
+config/name="GobblinesTreasureHunt"
+run/main_scene="uid://dr2adf1766fxk"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
